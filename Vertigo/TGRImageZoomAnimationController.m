@@ -28,7 +28,7 @@
 
 - (id)initWithReferenceImageView:(UIImageView *)referenceImageView {
     if (self = [super init]) {
-        NSAssert(referenceImageView.contentMode == UIViewContentModeScaleAspectFill, @"*** referenceImageView must have a UIViewContentModeScaleAspectFill contentMode!");
+        //NSAssert(referenceImageView.contentMode == UIViewContentModeScaleAspectFill, @"*** referenceImageView must have a UIViewContentModeScaleAspectFill contentMode!");
         _referenceImageView = referenceImageView;
     }
     return self;
@@ -60,8 +60,9 @@
     UIImageView *transitionView = [[UIImageView alloc] initWithImage:self.referenceImageView.image];
     transitionView.contentMode = UIViewContentModeScaleAspectFill;
     transitionView.clipsToBounds = YES;
-    transitionView.frame = [transitionContext.containerView convertRect:self.referenceImageView.bounds
-                                                               fromView:self.referenceImageView];
+    //transitionView.frame = [transitionContext.containerView convertRect:self.referenceImageView.bounds
+    //                                                           fromView:self.referenceImageView];
+    transitionView.frame =  CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);                                                          
     [transitionContext.containerView addSubview:transitionView];
     
     // Compute the final frame for the temporary view
